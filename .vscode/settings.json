@@ -1,0 +1,13 @@
+{
+    "terminal.intergated.env.windows": {
+        "PYTHONPATH": "${workspaceFolder}"
+    },
+    "terminal.integrated.env.osx": {
+        "PYTHONPATH": "${workspaceFolder}"
+    },
+    "termional.integrated.env.linux": {
+        "PYTHONPATH": "${workspaceFolder}"
+    },
+
+    "jupyter.notebookFileRoot": "${workspaceFolder}"
+}
