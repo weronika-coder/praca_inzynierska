@@ -83,3 +83,7 @@ def data2file(file_name, centers, fwhms, amplitudes):
         for c, a, fwhm in zip(centers, amplitudes, fwhms):
             f.write(f"{c:.6f}\t{a:.4f}\t{fwhm:.6f}\n")
  
+
+
+def lorentz(x, I, x0, fwhm):
+    return I * (fwhm/2)**2 / ((x - x0)**2 + (fwhm/2)**2)
