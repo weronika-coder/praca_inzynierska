@@ -84,6 +84,18 @@ def data2file(file_name, centers, fwhms, amplitudes):
             f.write(f"{c:.6f}\t{a:.4f}\t{fwhm:.6f}\n")
  
 
-
+#do wyrysowania pików z uśrednionych parametrów
 def lorentz(x, I, x0, fwhm):
     return I * (fwhm/2)**2 / ((x - x0)**2 + (fwhm/2)**2)
+
+#zmiana napisów
+def ustaw_styl_wykresow():
+    plt.rcParams.update(
+        {
+            "axes.labelsize": 16,
+            "xtick.labelsize": 14,
+            "ytick.labelsize": 14,
+            "legend.fontsize": 14,
+            "figure.autolayout": True,
+        }
+    )
