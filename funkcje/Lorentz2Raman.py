@@ -6,7 +6,7 @@ from lmfit.models import LorentzianModel
 import os
 from joblib import Parallel, delayed
 from pathlib import Path
-
+from scipy.stats import norm
 
 
 
