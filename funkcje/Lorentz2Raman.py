@@ -86,16 +86,24 @@ def data2file(file_name, centers, fwhms, amplitudes):
 
 #do wyrysowania pików z uśrednionych parametrów
 def lorentz(x, I, x0, fwhm):
-    return I * (fwhm/2)**2 / ((x - x0)**2 + (fwhm/2)**2)
+    return I*(fwhm/2)**2/((x-x0)**2+(fwhm/2)**2)
+
+
+#do wyrysowania rozkadu na histogramie
+def gauss(mu,sigma):
+    x=np.linspace(mu-4*sigma,mu+4*sigma,100)
+    y=(1/(sigma*np.sqrt(2*np.pi)))*np.exp(-0.5*((x-mu)/sigma)**2)
+    return x,y
 
 #zmiana napisów
 def ustaw_styl_wykresow():
     plt.rcParams.update(
         {
-            "axes.labelsize": 16,
-            "xtick.labelsize": 14,
-            "ytick.labelsize": 14,
-            "legend.fontsize": 14,
+            "axes.labelsize": 18,
+            "xtick.labelsize": 16,
+            "ytick.labelsize": 16,
+            "legend.fontsize": 16,
             "figure.autolayout": True,
+            "legend.frameon": False, 
         }
     )
