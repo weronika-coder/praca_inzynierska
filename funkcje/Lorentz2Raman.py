@@ -7,6 +7,7 @@ import os
 from joblib import Parallel, delayed
 from pathlib import Path
 from scipy.stats import norm
+import matplotlib.lines as mlines
 
 
 
@@ -99,6 +100,7 @@ def gauss(mu,sigma):
 def ustaw_styl_wykresow():
     plt.rcParams.update(
         {
+            "axes.titlesize": 20,
             "axes.labelsize": 18,
             "xtick.labelsize": 16,
             "ytick.labelsize": 16,
