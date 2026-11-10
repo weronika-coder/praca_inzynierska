@@ -35,7 +35,7 @@ def importMap(nazwa):
  
     rs_all = [rs[idx] for idx in splits]
     I_all  = [intensity[idx] for idx in splits]
-    return rs_all, I_all
+    return rs_all, I_all, xy
  
 
 #dopasowanie lorentza do pojedynczego piku
@@ -100,7 +100,7 @@ def gauss(mu,sigma):
 def ustaw_styl_wykresow():
     plt.rcParams.update(
         {
-            "axes.titlesize": 20,
+            "axes.titlesize": 16,
             "axes.labelsize": 18,
             "xtick.labelsize": 16,
             "ytick.labelsize": 16,
@@ -109,3 +109,22 @@ def ustaw_styl_wykresow():
             "legend.frameon": False, 
         }
     )
+
+
+
+def spectra2map(xy, z):
+    xy=np.asarray(xy)
+    z=np.asarray(z) 
+
+    changexy= np.any(np.diff(xy, axis=0) != 0, axis=1)
+    start = np.r_[0, np.where(changexy)[0] + 1]
+    xy_widm = xy[start]
+
+    xs=np.unique(xy_widm[:,0])
+    ys=np.unique(xy_widm[:,1])
+
+    z_map=np.full((len(ys), len(xs)), np.nan)
+    z_map[np.searchsorted(ys, xy_widm[:, 1]),
+    np.searchsorted(xs, xy_widm[:, 0])] = z
+
+    return xs, ys, z_map
